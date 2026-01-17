@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Manu! 💙</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💙</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Floating hearts background -->
+        <div class="hearts-bg" id="heartsBg"></div>
+        
+        <!-- Pages Container -->
+        <div class="pages-container">
+            <!-- Page 1: Welcome -->
+            <div class="page active" id="page1">
+                <div class="page-content">
+                    <h1 class="main-title">Happy Birthday! 💙</h1>
+                    
+                    <div class="photo-container">
+                        <div class="circle-photo" id="mainPhoto">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user-circle"></i>
+                                <p class="upload-instruction">Click to upload Manu's photo!</p>
+                            </div>
+                            <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="ascii-art">(o◕‿◕o)</div>
+                    
+                    <p class="instruction-text">Click the next button!! (つ◔◡◔)つ💙</p>
+                    
+                    <button class="next-btn cute-btn" onclick="nextPage()">
+                        Next!! ^w^ <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Page 2: Memories -->
+            <div class="page" id="page2">
+                <div class="page-content">
+                    <h1 class="main-title">Our Memories :3 🥇</h1>
+                    
+                    <div class="gallery-container">
+                        <div class="gallery-grid" id="galleryGrid">
+                            <!-- Gallery items will be generated here -->
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-instruction">
+                        <p><i class="fas fa-info-circle"></i> Click on each box to upload a memory photo!</p>
+                    </div>
+                    
+                    <button class="next-btn cute-btn" onclick="nextPage()">
+                        Next -> <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Page 3: Song -->
+            <div class="page" id="page3">
+                <div class="page-content">
+                    <h1 class="main-title">🎵 A Song Just For You</h1>
+                    
+                    <div class="video-container">
+                        <div class="video-placeholder" id="videoPlaceholder">
+                            <i class="fab fa-youtube"></i>
+                            <p>Paste YouTube URL below</p>
+                            <div class="url-input-container">
+                                <input type="text" id="youtubeUrl" placeholder="https://www.youtube.com/watch?v=...">
+                                <button class="small-btn" onclick="loadVideo()">Load Video</button>
+                            </div>
+                        </div>
+                        <div class="video-embed" id="videoEmbed"></div>
+                    </div>
+                    
+                    <div class="message-box">
+                        <div class="speech-bubble">
+                            <p>"This song reminds me of you. Every time I listen to it, I realize how much I want to be closer to you, but I don't always know how."</p>
+                        </div>
+                    </div>
+                    
+                    <button class="next-btn cute-btn" onclick="nextPage()">
+                        Next -> <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Page 4: Letter Teaser -->
+            <div class="page" id="page4">
+                <div class="page-content">
+                    <h1 class="main-title">A Special Message 💌</h1>
+                    
+                    <div class="envelope-container">
+                        <div class="photo-frame">
+                            <div class="envelope-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="letter-photo" id="letterPhoto">
+                                <div class="photo-placeholder">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <input type="file" id="letterPhotoUpload" accept="image/*" style="display: none;">
+                            </div>
+                        </div>
+                        
+                        <p class="teaser-text">I wrote a letter for you...</p>
+                        
+                        <div class="cat-gif-container">
+                            <div class="cat-animation">
+                                <div class="cat-ear left-ear"></div>
+                                <div class="cat-ear right-ear"></div>
+                                <div class="cat-face">
+                                    <div class="cat-eye left-eye"></div>
+                                    <div class="cat-eye right-eye"></div>
+                                    <div class="cat-mouth"></div>
+                                </div>
+                                <div class="cat-paw left-paw"></div>
+                                <div class="cat-paw right-paw"></div>
+                            </div>
+                            <p class="cat-text">"ヾ(˃̶⺫˂̶)ノ"</p>
+                        </div>
+                        
+                        <p class="prompt-text">Do you want to open it?</p>
+                        
+                        <div class="choice-buttons">
+                            <button class="choice-btn open-btn" onclick="openLetter()">
+                                Open It 💌
+                            </button>
+                            <button class="choice-btn no-btn" onclick="showModal()">
+                                No ty
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 5: The Letter -->
+            <div class="page" id="page5">
+                <div class="page-content">
+                    <h1 class="main-title">💌 Happy Birthday Pookie!!</h1>
+                    <h2 class="sub-title">💙💙💙</h2>
+                    
+                    <div class="letter-container">
+                        <div class="letter-paper">
+                            <div class="letter-content">
+                                <p>Happy birthday, Manu. I'm so glad I got to meet you, and thank you for giving me a second chance to get to know you. I want you to know that you keep me going even when things get hard, and that inspires me so much.</p>
+                                
+                                <p>Thank you for being understanding of me, and I hope this isn't too much for you cause I know you struggle with avoidant feelings sometimes, so I'm sorry in advance if I ever overwhelm you huhuh.</p>
+                                
+                                <p>But above all of that, today is about you. You deserve a day that feels as wonderful as you are. I hope it's filled with quiet peace, genuine laughs, and whatever makes your heart feel light. You deserve the absolute best, today and every single day.</p>
+                                
+                                <p>I hope we can make more memories soon or in the near future 🙏</p>
+                                
+                                <p>Enjoy your special day, Manu. Happy birthday again, my dear!</p>
+                                
+                                <div class="letter-signature">
+                                    <p>With all my care,</p>
+                                    <p class="signature">Jay 💗</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="next-btn cute-btn" onclick="nextPage()">
+                        Next -> <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Page 6: Finale -->
+            <div class="page" id="page6">
+                <div class="page-content">
+                    <h1 class="date-title">January 17, 2026</h1>
+                    
+                    <div class="final-animation">
+                        <div class="heart-icon animated-heart">💙</div>
+                        <div class="cake-icon animated-cake">🎂</div>
+                        <div class="heart-icon animated-heart">💙</div>
+                    </div>
+                    
+                    <div class="final-message">
+                        <p>Made with lots of love for the most wonderful person!</p>
+                        <p class="final-emoji">💙🎉🎁✨🎈</p>
+                    </div>
+                    
+                    <button class="restart-btn cute-btn" onclick="restartExperience()">
+                        Start Over ♥ <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal for "No" choice -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-content">
+                <div class="modal-text">
+                    <p>Awh... Let's try again, Please..? ＞︿＜</p>
+                </div>
+                <button class="again-btn cute-btn" onclick="closeModal()">
+                    Again? <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Progress Dots -->
+        <div class="progress-dots">
+            <span class="dot active" onclick="goToPage(0)"></span>
+            <span class="dot" onclick="goToPage(1)"></span>
+            <span class="dot" onclick="goToPage(2)"></span>
+            <span class="dot" onclick="goToPage(3)"></span>
+            <span class="dot" onclick="goToPage(4)"></span>
+            <span class="dot" onclick="goToPage(5)"></span>
+        </div>
+        
+        <!-- Music Toggle -->
+        <div class="music-toggle">
+            <button class="music-btn" onclick="toggleMusic()">
+                <i class="fas fa-music"></i>
+                <span class="music-text">Background Music</span>
+            </button>
+            <audio id="bgMusic" loop>
+                <source src="https://assets.mixkit.co/music/preview/mixkit-clear-sky-479.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
